@@ -54,6 +54,8 @@ public class SignUpActivity extends AppCompatActivity {
         //Check Space
         if (checkSpace()) {
             //Have Space
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this,"มีช่องว่าง","กรุณากรอกทุกช่อง ค่ะ");
         }
 
     }// clickSign
@@ -67,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
                 userString.equals("") ||
                 passwordString.equals("");
 
-        return false;
+        return result;
     }
 
 }// main class
