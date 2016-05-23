@@ -27,9 +27,19 @@ public class SignUpActivity extends AppCompatActivity {
         //bing Widget
 
         bindWidget();
-
+       //Radio Controller
+        radioController();
 
     }// main method
+
+    private void radioController() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+            }
+        });
+    }
 
     private void bindWidget() {
         nameEditText = (EditText) findViewById(R.id.editText);
@@ -56,9 +66,27 @@ public class SignUpActivity extends AppCompatActivity {
             //Have Space
             MyAlert myAlert = new MyAlert();
             myAlert.myDialog(this,"มีช่องว่าง","กรุณากรอกทุกช่อง ค่ะ");
+        } else if (idCardString.length() != 13) {//check id
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this,"รหัสบัตรผิด","รหัสบัตรต้องมี 13 หลักเท่านั้น");
+        } else if (checkRadioChoose()) {
+            //non check
+            MyAlert myAlert = new MyAlert();
+            myAlert.myDialog(this,"ยังไม่เลือกสถานะ","โปรดเลือกสถานะด้วยค่ะ");
+        } else {
+            //uploadValuetoServwe
+
         }
 
+
     }// clickSign
+
+    private boolean checkRadioChoose() {
+        boolean result = true;
+        result = officeRadioButton.isChecked() || outofficeRadioButton.isChecked();
+        return !result;
+    }
+
 
     private boolean checkSpace() {
 
