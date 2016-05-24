@@ -97,14 +97,14 @@ public class SignUpActivity extends AppCompatActivity {
             MyAlert myAlert = new MyAlert();
             myAlert.myDialog(this,"ยังไม่เลือกสถานะ","โปรดเลือกสถานะด้วยค่ะ");
         } else {
-            uploadValuetoServwe();
+            uploadValuetoServer();
 
         }
 
 
     }// clickSign
 
-    private void uploadValuetoServwe() {
+    private void uploadValuetoServer() {
 
         OkHttpClient okHttpClient = new OkHttpClient();
         RequestBody requestBody = new FormEncodingBuilder()
